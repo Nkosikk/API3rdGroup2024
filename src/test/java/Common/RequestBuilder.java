@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import static Common.BasePaths.ReqRes_baseURL;
 import static Common.ContentType.json_contentType;
 import static Common.PayloadBuilder.createUserProfileObject;
+import static Common.PayloadBuilder.updateUserProfileObject;
 import static io.restassured.RestAssured.given;
 
 
@@ -35,5 +36,18 @@ public class RequestBuilder {
                 then().
                 log().all().
                 extract().response();
+    }
+    public static Response updateUserProfileResponse() {
+        Response response = given().
+                when().
+                body(updateUserProfileObject()).
+                contentType(json_contentType).
+                log().all().
+                put(ReqRes_baseURL + "/api/users/2").
+                then().
+                log().all().
+                extract().response();
+
+        return response;
     }
 }
