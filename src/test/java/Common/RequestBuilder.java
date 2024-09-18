@@ -2,6 +2,7 @@ package Common;
 
 import io.restassured.response.Response;
 
+import static Common.BasePaths.DogsAPI_baseURL;
 import static Common.BasePaths.ReqRes_baseURL;
 import static Common.ContentType.json_contentType;
 import static Common.PayloadBuilder.createUserProfileObject;
@@ -18,7 +19,7 @@ public class RequestBuilder {
                 body(createUserProfileObject()).
                 contentType(json_contentType).
                 log().all().
-                post(ReqRes_baseURL + "/api/users").
+                post(ReqRes_baseURL + "api/users/").
                 then().
                 log().all().
                 extract().response();
@@ -36,4 +37,16 @@ public class RequestBuilder {
                 log().all().
                 extract().response();
     }
+
+    public static Response getAllDogsBreedsResponse(){
+        return given().
+                when().
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL+"list/all").
+                then().
+                log().all().
+                extract().response();
+    }
+
 }
