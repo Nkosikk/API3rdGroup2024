@@ -49,4 +49,16 @@ public class RequestBuilder {
                 extract().response();
     }
 
+    public static Response getRandomImageResponse(){
+        return given().
+                when().
+                contentType(json_contentType).
+                log().all().
+                get(DogsAPI_baseURL+"image/random").
+                then().
+                log().all().
+                extract().response();
+    }
+
+
 }

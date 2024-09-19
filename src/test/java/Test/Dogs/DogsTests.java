@@ -21,4 +21,13 @@ public class DogsTests {
                 log().all().
                 extract().response();
     }
+
+    public  void getRandomImageTest(){
+        getRandomImageResponse().
+                then().
+                assertThat().
+                statusCode(200).
+                log().all().
+                extract().response();
+    }
 }
