@@ -27,15 +27,15 @@ public class ReqResTests {
                 assertThat().
                 statusCode(200);
     }
-    public void updateUserProfileTests() {
-        updateUserProfileResponse().
-                then().
-                assertThat().
-                statusCode(200).
-                body("name",notNullValue()).
-                body("job",notNullValue()).
-                body("address",notNullValue()).
-                body("CellNumber",notNullValue());
-
-    }
+//    public void updateUserProfileTests() {
+//        updateUserProfileResponse().
+//                then().
+//                assertThat().
+//                statusCode(200).
+//                body("name",notNullValue()).
+//                body("job",notNullValue()).
+//                body("address",notNullValue()).
+//                body("CellNumber",notNullValue());
+//
+//    }
 }

@@ -76,6 +76,15 @@ public class RequestBuilder {
         weatherStationID = response.jsonPath().getString("ID");
         return response;
     }
-
+public static Response getWeatherStationResponse(){
+    return given().
+            when().queryParam("appid",API_key).
+            contentType(json_contentType).
+            log().all().
+            get(weather_API_baseURL + "/"+ weatherStationID).
+            then().
+            log().all().
+            extract().response();
+}
 
 }
