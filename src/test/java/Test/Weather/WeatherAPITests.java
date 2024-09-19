@@ -2,8 +2,7 @@ package Test.Weather;
 
 import org.testng.annotations.Test;
 
-import static Common.RequestBuilder.createUserProfileResponse;
-import static Common.RequestBuilder.registerWeatherStationResponse;
+import static Common.RequestBuilder.*;
 import static org.hamcrest.Matchers.notNullValue;
 
 
@@ -21,4 +20,14 @@ public class WeatherAPITests {
 
     }
 
+    @Test(priority = 1)
+    public void getNewWeatherStationTests() {
+      getWeatherStationResponse().
+                then().
+                assertThat().
+                statusCode(200).
+                log().all().
+                extract().response();
+
+    }
 }
